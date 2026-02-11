@@ -112,7 +112,7 @@ public class JLANFileServerConfiguration extends ServerConfiguration {
         smbConfig.setDatagramPort(1138);
         smbConfig.setSessionPort(1139);
         smbConfig.setTcpipSMB(true);
-        smbConfig.setTcpipSMBPort(4450);
+        smbConfig.setTcpipSMBPort(445);
         final SMBAuthenticator authenticator = new LocalAuthenticator() {
             @Override
             public AuthStatus authenticateUser(ClientInfo client, SrvSession sess,

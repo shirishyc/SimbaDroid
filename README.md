@@ -21,18 +21,18 @@ internal storage or an external SD card) from your computer via wi-fi.
 Due to Android limitations, this app requires root (as on all Unixoid operating systems, it is not
 possible to open a port < 1024 otherwise, and the default SMB port is 445 and Windows doesn't work
 with anything else) for full functionality. Without root, you either need some sort of SMB client
-which allows configuring the port used (SimbaDroid uses port 4450 behind the scenes), or some kind
+which allows configuring the port used (SimbaDroid uses port 445 behind the scenes), or some kind
 of [port mapping setup](https://serverfault.com/questions/1011395/access-smb-over-a-custom-port/1065212#1065212)
-to allow Windows to transparently connect to port 4450.
+to allow Windows to transparently connect to port 445.
 
 Recent Windows 11 releases starting from 24H2 also allow specifying a port number when connecting to
 an SMB share from the command line, e.g PowerShell:
 ```
-New-SmbMapping -LocalPath "Z:" -RemotePath "\\simbadroid.local\Internal" -TcpPort 4450
+New-SmbMapping -LocalPath "Z:" -RemotePath "\\simbadroid.local\Internal" -TcpPort 445
 ```
 … respectively via the regular command line:
 ```
-net use Z: \\simbadroid.local\Internal /TCPPORT:4450
+net use Z: \\simbadroid.local\Internal /TCPPORT:445
 ```
 
 Due to [JFileServer](https://github.com/FileSysOrg/jfileserver) limitations, only SMBv1 is
